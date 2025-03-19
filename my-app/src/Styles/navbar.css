@@ -1,0 +1,118 @@
+body {
+  background-color: #F8F8FF;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  padding: 5px;
+  background: #ffffff;
+  border: 1px solid #0b0b0b;
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+}
+
+.centerSection {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navItem {
+  font-size: 18px;
+  color: #000000;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover {
+  background: #b0b0b0;
+}
+
+.interval {
+  padding-top: 15px;
+}
+
+.login-button {
+  padding: 8px 16px;
+  background-color: #d6d6d6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #ababab;
+}
+
+.auth-message {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}

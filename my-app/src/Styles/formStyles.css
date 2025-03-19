@@ -1,0 +1,130 @@
+.form-editor-container {
+    display: flex;
+    justify-content: center;
+    background-color: #e8f0e8;
+    min-height: calc(100vh - 60px); /* Учитываем высоту верхнего меню */
+    padding: 20px;
+  }
+  
+  .form-editor-main {
+    width: 70%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-header {
+    background-color: #ffffff;
+    border: 1.5px solid #d6d6d6;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 2px 6px 0 #ababab;
+  }
+  
+  .question-card {
+    background-color: #ffffff;
+    border: 1.5px solid #d6d6d6;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 2px 6px 0 #ababab;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #d6d6d6;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #d6d6d6;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .option-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d6d6d6;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #ababab;
+  }
+  
+  .add-question-button {
+    width: auto;
+    margin: 10px 0;
+  }
+  
+  .tab-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .tab-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .form-editor-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    border: 1.5px solid #d6d6d6;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 2px 6px 0 #ababab;
+  }
+  
+  .sidebar-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #d6d6d6;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .sidebar-button:hover {
+    background-color: #ababab;
+  }

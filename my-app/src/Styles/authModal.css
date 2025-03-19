@@ -1,0 +1,90 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border: 1.5px solid #d6d6d6;
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 2px 6px 0 #ababab;
+  transition: height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.tab-container {
+  display: flex;
+  border-bottom: 2px solid #d6d6d6;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-button.active {
+  border-bottom: 2px solid #000000;
+  color: #000000;
+  font-weight: bold;
+}
+
+.tab-button:hover {
+  background-color: #f0f0f0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #d6d6d6;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #d6d6d6;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #ababab;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+}
