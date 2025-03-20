@@ -9,8 +9,10 @@ import OpenForm from './OpenForm';
 import '../Styles/navbar.css';
 import '../Styles/search.css';
 import { Survey } from './types';
+import AuthModal from './AuthModal';
 
 const Navbar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -86,7 +88,7 @@ const Navbar = () => {
   };
 
   const handleLogin = () => {
-    setIsLoggedIn(true);
+    setIsModalOpen(true);
   };
 
   const handleLogout = () => {
@@ -156,6 +158,11 @@ const Navbar = () => {
       ) : (
         <div className="auth-message">
           Авторизуйтесь для работы с системой
+          <AuthModal 
+            isOpen={isModalOpen} 
+            onClose={() => { setIsModalOpen(false); }}
+            onLogged={() => { setIsLoggedIn(true); }}
+            />
         </div>
       )}
 

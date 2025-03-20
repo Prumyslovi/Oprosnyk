@@ -19,6 +19,7 @@
   box-shadow: 0px 2px 6px 0 #ababab;
   transition: height 0.3s ease-in-out;
   overflow: hidden;
+  height: auto;
 }
 
 .tab-container {
