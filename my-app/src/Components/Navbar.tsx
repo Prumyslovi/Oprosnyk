@@ -1,10 +1,10 @@
-// Navbar.tsx
 import React, { useState } from 'react';
 import { FiMenu } from "react-icons/fi";
-import { FaSearch, FaTimes, FaRegUser } from 'react-icons/fa';
+import { FaSearch, FaTimes, FaRegUser, FaCog } from 'react-icons/fa';
 import Patterns from './Patterns';
 import LastContent from './LastContent';
 import CreateForm from './CreateForm';
+import SettingsModal from './SettingsModal';
 import OpenForm from './OpenForm';
 import '../Styles/navbar.css';
 import '../Styles/search.css';
@@ -74,6 +74,9 @@ const Navbar = () => {
       quests: [],
     },
   ]);
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+  const [selectedTheme, setSelectedTheme] = useState('Light');
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -88,13 +91,16 @@ const Navbar = () => {
   };
 
   const handleLogin = () => {
-    setIsModalOpen(true);
+    setIsLoggedIn(true);
+    setUser({ name: 'Сергей Дрочеслав', email: 'svo.goyda@mail.ru' });
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    setUser(null);
     setActiveComponent(null);
     setSelectedSurveyId(null);
+    setIsSettingsOpen(false);
   };
 
   return (
@@ -132,6 +138,13 @@ const Navbar = () => {
                   </button>
                 )}
               </li>
+              {isLoggedIn && (
+                <li className="navItem">
+                  <div onClick={() => setIsSettingsOpen(true)} style={{ cursor: 'pointer' }}>
+                    <FaCog size={24} />
+                  </div>
+                </li>
+              )}
             </ul>
           </div>
         </div>
@@ -164,6 +177,16 @@ const Navbar = () => {
             onLogged={() => { setIsLoggedIn(true); }}
             />
         </div>
+      )}
+
+      {isSettingsOpen && user && (
+        <SettingsModal
+          user={user}
+          selectedTheme={selectedTheme}
+          setSelectedTheme={setSelectedTheme}
+          handleLogout={handleLogout}
+          setIsSettingsOpen={setIsSettingsOpen}
+        />
       )}
 
       {isSidebarOpen && (
