@@ -10,10 +10,12 @@ import '../Styles/navbar.css';
 import '../Styles/search.css';
 import { Survey } from './types';
 import AuthModal from './AuthModal';
+import FormBuilder from './FormBuilder';
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [visibleFormBuilder, setVisibleFormBuilder] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeComponent, setActiveComponent] = useState<'create' | 'open' | null>(null);
@@ -97,6 +99,11 @@ const Navbar = () => {
     setSelectedSurveyId(null);
   };
 
+  const handleFormBuilder = (visible: boolean) => {
+    const searchContainer = document.querySelector("searchContainer");
+    searchContainer.
+  }
+
   return (
     <div>
       <div className="navbar">
@@ -117,6 +124,9 @@ const Navbar = () => {
                 />
                 {query && <FaTimes className="clearIcon" onClick={handleClear} />}
               </div>
+            </div>
+            <div>
+              <FormBuilder isVisible={visibleFormBuilder}></FormBuilder>
             </div>
           </div>
           <div className="rightSection">
@@ -147,9 +157,15 @@ const Navbar = () => {
           </div>
         </>
       ) : isLoggedIn && activeComponent === 'create' ? (
-        <CreateForm surveys={surveys} setSurveys={setSurveys} setActiveComponent={setActiveComponent} />
+        <CreateForm 
+          surveys={surveys} 
+          setSurveys={setSurveys} 
+          setActiveComponent={setActiveComponent} 
+          setOpenFormBuilder={(visible: boolean) => {setVisibleFormBuilder(visible); }}
+          />
       ) : isLoggedIn && activeComponent === 'open' && selectedSurveyId ? (
         <OpenForm
+          openFormBuilder={visibleFormBuilder}
           surveys={surveys}
           setSurveys={setSurveys}
           setActiveComponent={setActiveComponent}
