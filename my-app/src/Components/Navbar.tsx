@@ -15,7 +15,6 @@ import FormBuilder from './FormBuilder';
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [visibleFormBuilder, setVisibleFormBuilder] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeComponent, setActiveComponent] = useState<'create' | 'open' | null>(null);
@@ -99,11 +98,6 @@ const Navbar = () => {
     setSelectedSurveyId(null);
   };
 
-  const handleFormBuilder = (visible: boolean) => {
-    const searchContainer = document.querySelector("searchContainer");
-    searchContainer.
-  }
-
   return (
     <div>
       <div className="navbar">
@@ -111,24 +105,27 @@ const Navbar = () => {
           <div className="leftSection" onClick={toggleSidebar} style={{ cursor: 'pointer' }}>
             <FiMenu size={24} />
           </div>
-          <div className="centerSection">
-            <div className="searchBar">
-              <div className="searchContainer">
-                <FaSearch className="searchIcon" />
-                <input
-                  type="text"
-                  placeholder="Поиск"
-                  value={query}
-                  onChange={handleInputChange}
-                  className="searchInput"
-                />
-                {query && <FaTimes className="clearIcon" onClick={handleClear} />}
+          {activeComponent === null ? (
+            <div className="centerSection">
+              <div className="searchBar">
+                <div className="searchContainer">
+                  <FaSearch className="searchIcon" />
+                  <input
+                    type="text"
+                    placeholder="Поиск"
+                    value={query}
+                    onChange={handleInputChange}
+                    className="searchInput"
+                  />
+                  {query && <FaTimes className="clearIcon" onClick={handleClear} />}
+                </div>
               </div>
             </div>
+          ) : (
             <div>
-              <FormBuilder isVisible={visibleFormBuilder}></FormBuilder>
+              <FormBuilder></FormBuilder>
             </div>
-          </div>
+          )}
           <div className="rightSection">
             <ul className="navList">
               <li className="navItem">
@@ -161,11 +158,9 @@ const Navbar = () => {
           surveys={surveys} 
           setSurveys={setSurveys} 
           setActiveComponent={setActiveComponent} 
-          setOpenFormBuilder={(visible: boolean) => {setVisibleFormBuilder(visible); }}
           />
       ) : isLoggedIn && activeComponent === 'open' && selectedSurveyId ? (
         <OpenForm
-          openFormBuilder={visibleFormBuilder}
           surveys={surveys}
           setSurveys={setSurveys}
           setActiveComponent={setActiveComponent}

@@ -7,15 +7,12 @@ interface CreateFormProps {
   surveys: Survey[];
   setSurveys: React.Dispatch<React.SetStateAction<Survey[]>>;
   setActiveComponent: React.Dispatch<React.SetStateAction<'create' | 'open' | null>>;
-  setOpenFormBuilder: (visible: boolean) => void;
 }
 
-const CreateForm: React.FC<CreateFormProps> = ({ surveys, setSurveys, setActiveComponent, setOpenFormBuilder }) => {
+const CreateForm: React.FC<CreateFormProps> = ({ surveys, setSurveys, setActiveComponent }) => {
   const [surveyName, setSurveyName] = useState('');
   const [surveyDescription, setSurveyDescription] = useState('');
   const [quests, setQuests] = useState<Quest[]>([]);
-
-  setOpenFormBuilder(true);
 
   const handleAddQuest = () => {
     const newQuest: Quest = {
@@ -74,7 +71,7 @@ const CreateForm: React.FC<CreateFormProps> = ({ surveys, setSurveys, setActiveC
     setQuests([]);
     setActiveComponent(null);
   };
-
+  
   return (
     <div className="form-editor-container">
       <div className="form-editor-main">
@@ -150,10 +147,9 @@ const CreateForm: React.FC<CreateFormProps> = ({ surveys, setSurveys, setActiveC
           Добавить вопрос
         </button>
         <button className="submit-button" onClick={handleSaveForm}>Сохранить форму</button>
-        <button className="tab-button" onClick={() => { setActiveComponent(null); setOpenFormBuilder(false); }}>Назад</button>
+        <button className="tab-button" onClick={() => { setActiveComponent(null); }}>Назад</button>
       </div>
     </div>
   );
 };
-
 export default CreateForm;

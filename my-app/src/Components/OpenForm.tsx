@@ -8,13 +8,10 @@ interface OpenFormProps {
   setSurveys: React.Dispatch<React.SetStateAction<Survey[]>>;
   setActiveComponent: React.Dispatch<React.SetStateAction<'create' | 'open' | null>>;
   selectedSurveyId: string;
-  openFormBuilder: boolean;
 }
 
-const OpenForm: React.FC<OpenFormProps> = ({ surveys, setSurveys, setActiveComponent, selectedSurveyId, openFormBuilder }) => {
+const OpenForm: React.FC<OpenFormProps> = ({ surveys, setSurveys, setActiveComponent, selectedSurveyId }) => {
   const selectedSurvey = surveys.find((survey) => survey.id === selectedSurveyId)!;
-
-  openFormBuilder = true;
 
   const handleSurveyChange = (field: keyof Survey, value: string) => {
     const updatedSurveys = surveys.map((survey) =>
